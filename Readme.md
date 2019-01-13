@@ -6,16 +6,25 @@ The trick is to mount your local development folder /inside/ your docker image. 
 
 This package comes with Node and Ruby installed, but you can add your own.
 
+## Get it running
+
 ```bash
 # Build
-sudo docker build -t devbox:latest .
+docker build -t devbox:latest .
 
 # Run
-docker run -d  --name devbox-live -v /Users/evan/PROJECTS:/projects -p 2222:22 devbox:latest
+# Change `~/PROJECTS` to the directory you want to mount on your host
+docker run -d  --name devbox-live -v ~/PROJECTS:/projects -p 2222:22 devbox:latest
 
 # Connect
 ssh -X root@localhost -p 2222
 ```
+
+## Project Goals
+* No use of `sudo` on the host (your laptop)
+* Ability to have separate, easy-to-swap and start over VMs for each project.  No more fighting with versions or dependencies
+* Ability to mount to other docker VMs for databases or external services.  `docker-compose` is great at this.
+* Nothing magic: all configuration viewable in bash or docker commands
 
 ## Notes
 * inspired by https://github.com/mikadosoftware/workstation
