@@ -16,7 +16,7 @@ docker build -t devbox:latest .
 # Change `~/PROJECTS` to the directory you want to mount on your host
 docker run -d  --name devbox-live -v ~/PROJECTS:/projects -p 2222:22 devbox:latest
 
-# Connect
+# Connect (the password is 'root')
 ssh -X root@localhost -p 2222
 ```
 

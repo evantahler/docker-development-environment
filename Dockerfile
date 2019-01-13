@@ -38,5 +38,5 @@ RUN /root/.rbenv/bin/rbenv global $RUBY_VERSION
 RUN /root/.rbenv/bin/rbenv exec gem install bundler
 
 ## Start SSH
-EXPOSE 22
+EXPOSE 22 80 8080 3000 5000 9000
 CMD ["/usr/sbin/sshd", "-D"]
